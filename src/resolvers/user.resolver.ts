@@ -5,13 +5,19 @@ import { UsersArgs } from './args/user.args';
 import User from '@entities/user.entity';
 import RepoService from '~/repo.service';
 import { Repository } from 'typeorm';
+import { ConfigService } from '@nestjs/config';
 
 @Resolver(() => User)
 export class UserResolver {
   User: Repository<User>;
+  config: ConfigService;
 
-  constructor(private readonly repoService: RepoService) {
+  constructor(
+    private readonly repoService: RepoService,
+    private configService: ConfigService
+  ) {
     this.User = repoService.userRepo;
+    this.config = configService;
   }
 
   @Query(() => User)
@@ -38,7 +44,7 @@ export class UserResolver {
     const user = this.User.create(newUserData);
     const newUser = await this.User.save(user);
 
-    console.log({ newUser });
+    console.log({ newUser, env: this.config.get('PORT') });
     return user;
   }
 
