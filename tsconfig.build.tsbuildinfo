@@ -5465,13 +5465,18 @@
         "signature": "796e80addd3080377b5d2543c8f53ee4e125d30e5ce4e475f4bce823531a8675",
         "affectsGlobalScope": false
       },
+      "./src/database/entities/chat.entity.ts": {
+        "version": "3f68467ddfc34fe02261e5c082277caf34671f436e59fffe786fccea33ce4c80",
+        "signature": "097620a4bd103fe6b4a8ed9826c0267b9dc6da09e1a5277503353dbc3be4ee9d",
+        "affectsGlobalScope": false
+      },
       "./src/repo.service.ts": {
-        "version": "14aa483de68dd7e2a533d4e903697e5c2d78755516b236edbd6ed658e37623a0",
-        "signature": "01226428757f6bc3817668982cf5cdf9a46825038dc9ce8b95b5f0072f7f8f6b",
+        "version": "94b73f737714aeda776ca98c96d67e90783b2ae0ed854959824fecc30cbb04b9",
+        "signature": "add82ad1992f0f641cb9d54cd19ce2c537018ba2a3fda48751e6b5644a98abbd",
         "affectsGlobalScope": false
       },
       "./src/repo.module.ts": {
-        "version": "783f67fa75ef1fb754aee7d7c7804deed123e212b75e4d55535842c15b6ca9a8",
+        "version": "73b3d4fa3ddfc5365154e76c57e4b244c9682ce4772837878d70383aa64aefc1",
         "signature": "01f9a8b120f5f13f257dbcd1af839220796e2ecb88a7c155b74e80a0ed55a9ee",
         "affectsGlobalScope": false
       },
@@ -6096,23 +6101,8 @@
         "affectsGlobalScope": false
       },
       "./src/resolvers/args/user.args.ts": {
-        "version": "d0b2d22d5e14e25ed1244273c514b34436636d300e1f453f7a784108fe72071f",
-        "signature": "69943251fa53b9dcd9ebd894ee0b543b76148735da8f84ec8ea02ac905ca131b",
-        "affectsGlobalScope": false
-      },
-      "./src/resolvers/user.resolver.ts": {
-        "version": "fed0b5b974dc6ba89a7bac2f08af6886cef2ac6b00bd766dd7e5f8d9946e5d47",
-        "signature": "5071472df37afdc937cf2a8227bd9b9064ccba131a7a80587ff52e58b5bae3dc",
-        "affectsGlobalScope": false
-      },
-      "./src/app.module.ts": {
-        "version": "2a5f63336758e60da808387650167f09228a49fa11d00ed49db2f5b4f48df6e8",
-        "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
-        "affectsGlobalScope": false
-      },
-      "./src/main.ts": {
-        "version": "d8468a23e79c10f4e4264081ea951e55ddbed7c3f523eb7511c47a1652b6083b",
-        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "version": "a14a734eafb6eb83a04d38f0b11d4abccb42c2c81595c61599e1022a575a6eef",
+        "signature": "3947cf89583baff77a430aa942ee53d745e1b8c2ce2ea3e272b4c2d7688ec1f8",
         "affectsGlobalScope": false
       },
       "./node_modules/apollo-server-express/node_modules/graphql-tools/dist/index.d.ts": {
@@ -6170,6 +6160,36 @@
         "signature": "44e8bb3a7188456531afeb4ee8c58de39781ca6bdcf10cf7d17dcdc6375832f4",
         "affectsGlobalScope": false
       },
+      "./src/resolvers/user.resolver.ts": {
+        "version": "2da7dd42e137aef6cdea67d6fb65877341a4d3a212998a6a1db64bedec0afc38",
+        "signature": "1f57dfb5435d14f3c7b50590ab521054bd7ad62e254d8e5513e3ff8f60e30856",
+        "affectsGlobalScope": false
+      },
+      "./src/resolvers/input/chat.input.ts": {
+        "version": "93fd0471ebab255c9cda68edf0dd8043654c2a95ec69dc8d86f1b969165c1290",
+        "signature": "bdce71883b75c6e1dfae61ede95c57289417fa4379642e97a86ee1be2c2ca68f",
+        "affectsGlobalScope": false
+      },
+      "./src/resolvers/args/chat.args.ts": {
+        "version": "9a890c0d4e3914e6b28f9da08dd38dc94663d6e0ca6d6df77122f6017b10e320",
+        "signature": "dd507aaffbda6d2ae591910dffc7046c60f52cbfe8cdae80d143d26dbaa061d7",
+        "affectsGlobalScope": false
+      },
+      "./src/resolvers/chat.resolver.ts": {
+        "version": "099eefd2c54726c47c3fdcddfcd9fd1b30bd4d467cae04f1555f24a3145c1feb",
+        "signature": "92e52c063b7c1916f7ec279c5e8ee89beb8be065ef3679cebceec3cc8b525d0c",
+        "affectsGlobalScope": false
+      },
+      "./src/app.module.ts": {
+        "version": "c062852aaed500adad7473427158abf5012de2bc540163cb69a65cacbe56f53c",
+        "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
+        "affectsGlobalScope": false
+      },
+      "./src/main.ts": {
+        "version": "d8468a23e79c10f4e4264081ea951e55ddbed7c3f523eb7511c47a1652b6083b",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
       "./src/common/directives/upper-case.directive.ts": {
         "version": "18c4f236fa14c92d3b10257e1e84f0b25d6eced394261154bcd8390b27f0a42a",
         "signature": "68a4cff93b7e97762bb281125e893e976b334acabf76c6fe99e438fbd49a5527",
@@ -6218,6 +6238,11 @@
       "./src/database/migrations/1597621693929-createUsers.ts": {
         "version": "bff87cfe66d6fdd43f347540fe217cf48c91d9777d2594e3c3d491d7d97228f5",
         "signature": "c14cfb5335811db67ee7189417a00e5ca75593f9a5dcca9c043d5b87b2a16a37",
+        "affectsGlobalScope": false
+      },
+      "./src/database/migrations/1597880743058-create-chats.ts": {
+        "version": "f18281b32724af4b9bbbd48af29d73cc85788fe6c14a4aac2fe27225e0e285f3",
+        "signature": "42724b5de834841ed635bf6fb634458e62e97857ef8ff21b89edc978642b3f7d",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/anymatch/index.d.ts": {
@@ -15330,6 +15355,7 @@
         "./src/common/scalars/date.scalar.ts",
         "./src/config/orm.ts",
         "./src/repo.module.ts",
+        "./src/resolvers/chat.resolver.ts",
         "./src/resolvers/user.resolver.ts"
       ],
       "./src/common/directives/upper-case.directive.ts": [
@@ -15365,6 +15391,13 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/dotenv/types/index.d.ts"
       ],
+      "./src/database/entities/chat.entity.ts": [
+        "./node_modules/@nestjs/graphql/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/typeorm/index.d.ts",
+        "./src/database/entities/user.entity.ts"
+      ],
       "./src/database/entities/user.entity.ts": [
         "./node_modules/@nestjs/graphql/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -15372,6 +15405,11 @@
         "./node_modules/typeorm/index.d.ts"
       ],
       "./src/database/migrations/1597621693929-createUsers.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/typeorm/index.d.ts"
+      ],
+      "./src/database/migrations/1597880743058-create-chats.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/typeorm/index.d.ts"
@@ -15389,6 +15427,7 @@
         "./node_modules/@nestjs/typeorm/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
+        "./src/database/entities/chat.entity.ts",
         "./src/database/entities/user.entity.ts",
         "./src/repo.service.ts"
       ],
@@ -15398,13 +15437,38 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/typeorm/index.d.ts",
+        "./src/database/entities/chat.entity.ts",
         "./src/database/entities/user.entity.ts"
+      ],
+      "./src/resolvers/args/chat.args.ts": [
+        "./node_modules/@nestjs/graphql/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/class-validator/types/index.d.ts"
       ],
       "./src/resolvers/args/user.args.ts": [
         "./node_modules/@nestjs/graphql/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/class-validator/types/index.d.ts"
+      ],
+      "./src/resolvers/chat.resolver.ts": [
+        "./node_modules/@nestjs/config/index.d.ts",
+        "./node_modules/@nestjs/graphql/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/apollo-server/dist/index.d.ts",
+        "./node_modules/typeorm/index.d.ts",
+        "./src/database/entities/chat.entity.ts",
+        "./src/database/entities/user.entity.ts",
+        "./src/repo.service.ts",
+        "./src/resolvers/args/chat.args.ts",
+        "./src/resolvers/input/chat.input.ts"
+      ],
+      "./src/resolvers/input/chat.input.ts": [
+        "./node_modules/@nestjs/graphql/index.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./src/resolvers/input/user.input.ts": [
         "./node_modules/@nestjs/graphql/index.d.ts",
@@ -15418,6 +15482,7 @@
         "./node_modules/@nestjs/graphql/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
+        "./node_modules/apollo-server/dist/index.d.ts",
         "./node_modules/typeorm/index.d.ts",
         "./src/database/entities/user.entity.ts",
         "./src/repo.service.ts",
@@ -26519,15 +26584,32 @@
         "./node_modules/@nestjs/graphql/index.d.ts",
         "./node_modules/graphql/index.d.ts"
       ],
+      "./src/database/entities/chat.entity.ts": [
+        "./src/database/entities/user.entity.ts"
+      ],
       "./src/database/migrations/1597621693929-createUsers.ts": [
+        "./node_modules/typeorm/index.d.ts"
+      ],
+      "./src/database/migrations/1597880743058-create-chats.ts": [
         "./node_modules/typeorm/index.d.ts"
       ],
       "./src/repo.service.ts": [
         "./node_modules/typeorm/index.d.ts",
+        "./src/database/entities/chat.entity.ts",
         "./src/database/entities/user.entity.ts"
+      ],
+      "./src/resolvers/chat.resolver.ts": [
+        "./node_modules/@nestjs/config/index.d.ts",
+        "./node_modules/typeorm/index.d.ts",
+        "./src/database/entities/chat.entity.ts",
+        "./src/database/entities/user.entity.ts",
+        "./src/repo.service.ts",
+        "./src/resolvers/args/chat.args.ts",
+        "./src/resolvers/input/chat.input.ts"
       ],
       "./src/resolvers/user.resolver.ts": [
         "./node_modules/@nestjs/config/index.d.ts",
+        "./node_modules/apollo-server/dist/index.d.ts",
         "./node_modules/typeorm/index.d.ts",
         "./src/database/entities/user.entity.ts",
         "./src/repo.service.ts",
@@ -27857,12 +27939,17 @@
       "./src/common/plugins/logging.plugin.ts",
       "./src/common/scalars/date.scalar.ts",
       "./src/config/orm.ts",
+      "./src/database/entities/chat.entity.ts",
       "./src/database/entities/user.entity.ts",
       "./src/database/migrations/1597621693929-createUsers.ts",
+      "./src/database/migrations/1597880743058-create-chats.ts",
       "./src/main.ts",
       "./src/repo.module.ts",
       "./src/repo.service.ts",
+      "./src/resolvers/args/chat.args.ts",
       "./src/resolvers/args/user.args.ts",
+      "./src/resolvers/chat.resolver.ts",
+      "./src/resolvers/input/chat.input.ts",
       "./src/resolvers/input/user.input.ts",
       "./src/resolvers/user.resolver.ts"
     ]

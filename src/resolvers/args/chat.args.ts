@@ -2,7 +2,7 @@ import { ArgsType, Field, Int } from '@nestjs/graphql';
 import { Max, Min } from 'class-validator';
 
 @ArgsType()
-export class UsersArgs {
+export class ChatsArgs {
   @Field(() => Int)
   @Min(0)
   skip = 0;
@@ -11,7 +11,4 @@ export class UsersArgs {
   @Min(1)
   @Max(50)
   take = 10;
-
-  @Field(() => Int)
-  not = 0;
 }

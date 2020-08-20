@@ -14,18 +14,41 @@ type User {
 """Date custom scalar type"""
 scalar Date
 
+type Chat {
+  id: Float!
+  hostId: Float!
+  guestId: Float!
+  createdAt: Date!
+  updatedAt: Date!
+  host: User!
+  guest: User!
+}
+
 type Query {
   user(id: String!): User!
-  users(skip: Int = 0, take: Int = 10): [User!]!
+  users(skip: Int = 0, take: Int = 10, not: Int = 0): [User!]!
+  chat(id: String!): Chat!
+  chats(skip: Int = 0, take: Int = 10): [Chat!]!
 }
 
 type Mutation {
   addUser(input: NewUserInput!): User!
   removeUser(id: Float!): Boolean!
+  addChat(input: NewChatInput!): Chat!
+  removeChat(id: Float!): Boolean!
 }
 
 input NewUserInput {
   name: String
   email: String!
   password: String!
+}
+
+input NewChatInput {
+  hostId: Float!
+  guestId: Float!
+}
+
+type Subscription {
+  addedUser: User!
 }

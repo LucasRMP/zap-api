@@ -7,8 +7,9 @@ import { DateScalar } from '@common/scalars/date.scalar';
 import * as ormConfig from '@config/orm';
 import RepoModule from './repo.module';
 import { UserResolver } from '@resolvers/user.resolver';
+import { ChatResolver } from '@resolvers/chat.resolver';
 
-const gqlResolvers = [UserResolver];
+const gqlResolvers = [UserResolver, ChatResolver];
 
 @Module({
   imports: [
