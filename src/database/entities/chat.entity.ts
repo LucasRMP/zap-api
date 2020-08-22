@@ -1,3 +1,4 @@
+import { ObjectType, Field } from '@nestjs/graphql';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -6,7 +7,6 @@ import {
   OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { ObjectType, Field } from '@nestjs/graphql';
 
 import User from './user.entity';
 
@@ -18,7 +18,7 @@ export default class Chat {
   id: number;
 
   @Field()
-  @Column({ name: 'host_id' })
+  @Column()
   hostId: number;
 
   @OneToOne(() => User)
@@ -26,7 +26,7 @@ export default class Chat {
   host: User;
 
   @Field()
-  @Column({ name: 'guest_id' })
+  @Column()
   guestId: number;
 
   @OneToOne(() => User)
@@ -34,10 +34,10 @@ export default class Chat {
   guest: User;
 
   @Field()
-  @CreateDateColumn({ name: 'created_at' })
+  @CreateDateColumn()
   createdAt: Date;
 
   @Field()
-  @CreateDateColumn({ name: 'updated_at' })
+  @CreateDateColumn()
   updatedAt: Date;
 }

@@ -4,22 +4,39 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  OneToOne,
+  JoinColumn,
 } from 'typeorm';
 
+import Chat from './chat.entity';
+import User from './user.entity';
+
 @ObjectType()
-@Entity({ name: 'users' })
-export default class User {
+@Entity({ name: 'messages' })
+export default class Message {
   @Field()
   @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
   @Column()
-  name: string;
+  content: string;
 
   @Field()
   @Column()
-  email: string;
+  authorId: number;
+
+  @OneToOne(() => User)
+  @JoinColumn()
+  author: User;
+
+  @Field()
+  @Column()
+  chatId: number;
+
+  @OneToOne(() => Chat)
+  @JoinColumn()
+  chat: Chat;
 
   @Field()
   @CreateDateColumn()

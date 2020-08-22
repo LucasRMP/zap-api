@@ -5,11 +5,11 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export class createChats1597880743058 implements MigrationInterface {
+export class createMessages1597957067654 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'chats',
+        name: 'messages',
         columns: [
           {
             name: 'id',
@@ -19,22 +19,32 @@ export class createChats1597880743058 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'host_id',
-            type: 'integer',
+            name: 'content',
+            type: 'varchar',
+            length: '255',
+            isNullable: false,
           },
           {
-            name: 'guest_id',
+            name: 'author_id',
             type: 'integer',
+            isNullable: false,
+          },
+          {
+            name: 'chat_id',
+            type: 'integer',
+            isNullable: false,
           },
           {
             name: 'created_at',
             type: 'timestamptz',
             default: 'now()',
+            isNullable: false,
           },
           {
             name: 'updated_at',
             type: 'timestamptz',
             default: 'now()',
+            isNullable: false,
           },
         ],
       }),
@@ -42,9 +52,9 @@ export class createChats1597880743058 implements MigrationInterface {
     );
 
     await queryRunner.createForeignKey(
-      'chats',
+      'messages',
       new TableForeignKey({
-        columnNames: ['host_id'],
+        columnNames: ['author_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
         onDelete: 'CASCADE',
@@ -52,27 +62,19 @@ export class createChats1597880743058 implements MigrationInterface {
     );
 
     await queryRunner.createForeignKey(
-      'chats',
+      'messages',
       new TableForeignKey({
-        columnNames: ['guest_id'],
+        columnNames: ['chat_id'],
         referencedColumnNames: ['id'],
-        referencedTableName: 'users',
+        referencedTableName: 'chats',
         onDelete: 'CASCADE',
       })
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    // const table = await queryRunner.getTable('chats');
-    // const guestId = table.foreignKeys.find(
-    //   (fk) => fk.columnNames.indexOf('guest_id') !== -1
-    // );
-    // const hostId = table.foreignKeys.find(
-    //   (fk) => fk.columnNames.indexOf('host_id') !== -1
-    // );
-
-    // await queryRunner.dropForeignKey('chats', guestId);
-    // await queryRunner.dropForeignKey('chats', hostId);
-    await queryRunner.query('DROP TABLE "chats"');
+    const table = await queryRunner.getTable('messages');
+    await queryRunner.dropForeignKeys('messages', table.foreignKeys);
+    await queryRunner.dropTable('messages');
   }
 }

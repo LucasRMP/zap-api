@@ -1,4 +1,3 @@
-import { Repository, Not, In } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import {
   Args,
@@ -7,14 +6,18 @@ import {
   Resolver,
   ResolveField,
   Parent,
+  Context,
 } from '@nestjs/graphql';
+import { Repository, In } from 'typeorm';
+
 import { ValidationError } from 'apollo-server';
 
-import { NewChatInput } from './input/chat.input';
-import { ChatsArgs } from './args/chat.args';
-import RepoService from '~/repo.service';
 import Chat from '@entities/chat.entity';
 import User from '@entities/user.entity';
+import RepoService from '~/repo.service';
+
+import { ChatsArgs } from './args/chat.args';
+import { NewChatInput } from './input/chat.input';
 
 @Resolver(() => Chat)
 export class ChatResolver {
@@ -32,13 +35,19 @@ export class ChatResolver {
   }
 
   @ResolveField(() => User)
-  async host(@Parent() { hostId }: Chat): Promise<User> {
-    return await this.User.findOne({ where: { id: hostId } });
+  async host(
+    @Parent() { hostId }: Chat,
+    @Context() { userLoader }
+  ): Promise<User> {
+    return await userLoader.load(hostId);
   }
 
   @ResolveField(() => User)
-  async guest(@Parent() { guestId }: Chat): Promise<User> {
-    return await this.User.findOne({ where: { id: guestId } });
+  async guest(
+    @Parent() { guestId }: Chat,
+    @Context() { userLoader }
+  ): Promise<User> {
+    return await userLoader.load(guestId);
   }
 
   @Query(() => Chat)

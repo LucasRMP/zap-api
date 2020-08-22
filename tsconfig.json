@@ -23,6 +23,7 @@
       "@config/*": ["./src/config/*"],
       "@common/*": ["./src/common/*"],
       "@entities/*": ["./src/database/entities/*"],
+      "@loaders/*": ["./src/database/loaders/*"],
       "@resolvers/*": ["./src/resolvers/*"],
       "@utils/*": ["./src/utils/*"],
       "~/*": ["./src/*"]

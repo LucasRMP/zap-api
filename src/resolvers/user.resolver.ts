@@ -1,12 +1,24 @@
 import { NotFoundException } from '@nestjs/common';
-import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
-import { NewUserInput } from './input/user.input';
-import { UsersArgs } from './args/user.args';
-import User from '@entities/user.entity';
-import RepoService from '~/repo.service';
-import { Repository, Not } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
+import {
+  Args,
+  Mutation,
+  Query,
+  Resolver,
+  Subscription,
+  Context,
+} from '@nestjs/graphql';
+import { Repository, Not } from 'typeorm';
+
 import { PubSub } from 'apollo-server';
+
+import User from '@entities/user.entity';
+import { AuthService } from '~/auth/auth.service';
+import RepoService from '~/repo.service';
+
+import { UsersArgs } from './args/user.args';
+import { LoginResult } from './dto/user.dto';
+import { NewUserInput, LoginUserInput } from './input/user.input';
 
 const events = {
   ADD_USER: 'addedUser',
@@ -15,15 +27,14 @@ const events = {
 @Resolver(() => User)
 export class UserResolver {
   User: Repository<User>;
-  config: ConfigService;
   pubSub: PubSub;
 
   constructor(
-    private readonly repoService: RepoService,
-    private configService: ConfigService
+    private readonly repo: RepoService,
+    private readonly config: ConfigService,
+    private readonly auth: AuthService
   ) {
-    this.User = repoService.userRepo;
-    this.config = configService;
+    this.User = repo.userRepo;
     this.pubSub = new PubSub();
   }
 
@@ -39,13 +50,16 @@ export class UserResolver {
     });
 
     if (!user) {
-      throw new NotFoundException(id);
+      throw new NotFoundException('User not found');
     }
     return user;
   }
 
   @Query(() => [User])
-  async users(@Args() { skip, take, not }: UsersArgs): Promise<User[]> {
+  async users(
+    @Context() ctx,
+    @Args() { skip, take, not }: UsersArgs
+  ): Promise<User[]> {
     const users = await this.User.find({
       where: { id: Not(not) },
       skip,
@@ -68,5 +82,19 @@ export class UserResolver {
   async removeUser(@Args('id') id: number): Promise<boolean> {
     const result = await this.User.softRemove({ id });
     return !!result;
+  }
+
+  @Mutation(() => LoginResult)
+  async loginUser(@Args('input') { email }: LoginUserInput): Promise<any> {
+    const user: any = await this.User.findOneOrFail({ where: { email } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    const { id, name, createdAt, updatedAt } = user;
+
+    const token = this.auth.authenticate({ id, name, createdAt, updatedAt });
+
+    return { token, user };
   }
 }

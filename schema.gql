@@ -6,7 +6,6 @@ type User {
   id: Float!
   name: String!
   email: String!
-  password: String!
   createdAt: Date!
   updatedAt: Date!
 }
@@ -24,24 +23,39 @@ type Chat {
   guest: User!
 }
 
+type Message {
+  id: Float!
+  content: String!
+  authorId: Float!
+  chatId: Float!
+  createdAt: Date!
+  updatedAt: Date!
+  author: User!
+  chat: Chat!
+}
+
+type LoginResult {
+  token: String!
+  user: User!
+}
+
 type Query {
-  user(id: String!): User!
-  users(skip: Int = 0, take: Int = 10, not: Int = 0): [User!]!
   chat(id: String!): Chat!
   chats(skip: Int = 0, take: Int = 10): [Chat!]!
+  message(id: String!): Message!
+  messages(skip: Int = 0, take: Int = 10): [Message!]!
+  user(id: String!): User!
+  users(skip: Int = 0, take: Int = 10, not: Int = 0): [User!]!
 }
 
 type Mutation {
-  addUser(input: NewUserInput!): User!
-  removeUser(id: Float!): Boolean!
   addChat(input: NewChatInput!): Chat!
   removeChat(id: Float!): Boolean!
-}
-
-input NewUserInput {
-  name: String
-  email: String!
-  password: String!
+  addMessage(input: NewMessageInput!): Message!
+  removeMessage(id: Float!): Boolean!
+  addUser(input: NewUserInput!): User!
+  removeUser(id: Float!): Boolean!
+  loginUser(input: LoginUserInput!): LoginResult!
 }
 
 input NewChatInput {
@@ -49,6 +63,21 @@ input NewChatInput {
   guestId: Float!
 }
 
+input NewMessageInput {
+  content: String!
+  chatId: Float!
+}
+
+input NewUserInput {
+  name: String
+  email: String!
+}
+
+input LoginUserInput {
+  email: String!
+}
+
 type Subscription {
+  addedMessage: Message!
   addedUser: User!
 }
